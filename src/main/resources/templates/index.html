@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Get Result</title>
+</head>
+<body>
+<form th:action="@{/calculate}" th:object="${binaryOperation}" method="post">
+    <table>
+        <tr>
+            <td>Operand One:</td>
+            <td><input type="text" th:field="*{operandOne}"/></td>
+            <td th:if="${#fields.hasErrors('operandOne')}" th:errors="*{operandOne}">OperandOne Error</td>
+        </tr>
+        <tr>
+            <td>Operator:</td>
+            <td><input type="text" th:field="*{operator}"/></td>
+            <td th:if="${#fields.hasErrors('operator')}" th:errors="*{operator}">Operator Error</td>
+        </tr>
+        <tr>
+            <td>OperandTwo:</td>
+            <td><input type="text" th:field="*{operandTwo}"/></td>
+            <td th:if="${#fields.hasErrors('operandTwo')}" th:errors="*{operandTwo}">OperandTwo Error</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
